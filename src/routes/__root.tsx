@@ -1,14 +1,9 @@
+import TanStackHeader from '../components/TanstackHeader'
+import StoreDevtools from '../lib/demo-store-devtools'
+import appCss from '../styles.css?url'
+import { TanStackDevtools } from '@tanstack/react-devtools'
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
-
-import Header from '../components/Header'
-
-import ConvexProvider from '../integrations/convex/provider'
-
-import StoreDevtools from '../lib/demo-store-devtools'
-
-import appCss from '../styles.css?url'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -42,22 +37,20 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <ConvexProvider>
-          <Header />
-          {children}
-          <TanStackDevtools
-            config={{
-              position: 'bottom-right',
-            }}
-            plugins={[
-              {
-                name: 'Tanstack Router',
-                render: <TanStackRouterDevtoolsPanel />,
-              },
-              StoreDevtools,
-            ]}
-          />
-        </ConvexProvider>
+        <TanStackHeader />
+        {children}
+        <TanStackDevtools
+          config={{
+            position: 'bottom-right',
+          }}
+          plugins={[
+            {
+              name: 'Tanstack Router',
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+            StoreDevtools,
+          ]}
+        />
         <Scripts />
       </body>
     </html>

@@ -1,8 +1,5 @@
-import { Link } from '@tanstack/react-router'
-
 import TanChatAIAssistant from './example-AIAssistant.tsx'
-
-import { useState } from 'react'
+import { Link } from '@tanstack/react-router'
 import {
   ChevronDown,
   ChevronRight,
@@ -19,8 +16,9 @@ import {
   Webhook,
   X,
 } from 'lucide-react'
+import { useState } from 'react'
 
-export default function Header() {
+export default function TanStackHeader() {
   const [isOpen, setIsOpen] = useState(false)
   const [groupedExpanded, setGroupedExpanded] = useState<
     Record<string, boolean>
@@ -78,19 +76,6 @@ export default function Header() {
           </Link>
 
           {/* Demo Links Start */}
-
-          <Link
-            to="/demo/convex"
-            onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
-            activeProps={{
-              className:
-                'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
-            }}
-          >
-            <Globe size={20} />
-            <span className="font-medium">Convex</span>
-          </Link>
 
           <Link
             to="/demo/form/simple"
